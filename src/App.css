@@ -1,42 +1,294 @@
-#root {
-  max-width: 1280px;
+/*=================
+ Todo Root Area
+===================*/
+.company_todo {
+  background-color: greenyellow;
+  max-width: 100%;
+  width: 80%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
+  border-radius: 15px;
+  font-family: sans-serif;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.company_todo h2 {
+  font-size: 50px;
+  font-weight: 700;
+  font-family: Tahoma;
+  margin: 0;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.company_todo h3 {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: Tahoma;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.company_todo h3 span {
+  font-size: 22px;
+  font-weight: 600;
+  background-color: white;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+}
+/*=================
+ Todo Form Area
+===================*/
+.company_todo .company_todo_form form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 60%;
+  margin: 2rem auto;
+}
+.company_todo .company_todo_form form input {
+  width: 80%;
+  height: 3rem;
+  padding: 0 0.4rem;
+  border: 1px solid teal;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  outline: none;
+  font-size: 16px;
+  color: black;
+}
+.company_todo .company_todo_form form input::placeholder {
+  font-size: 16px;
+  color: black;
+}
+.company_todo .company_todo_form form button {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: Tahoma;
+  background-color: teal;
+  color: white;
+  width: 20%;
+  height: 3rem;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+/* Todo Status select*/
+.company_todo .todo_status label {
+  font-size: 17px;
+  font-weight: 500;
+}
+.company_todo .todo_status select {
+  outline: none;
+  padding: 0.3rem 0.4rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  border: none;
+}
+.company_todo .todo_status select option {
+  font-size: 17px;
+  font-weight: 500;
+}
+/*=================
+ Todo List Area
+===================*/
+.company_todo .company_todo_item {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.company_todo .company_todo_item .todo_list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  gap: 1rem;
+}
+.company_todo .company_todo_item .todo_list .todo_priority {
+  width: 25%;
+  background-color: bisque;
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+.company_todo .company_todo_item .todo_list .todo_priority h4 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 0 0.3rem 0;
+}
+.company_todo .company_todo_item .todo_list .todo_priority .btns {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.company_todo .company_todo_item .todo_list .todo_priority .btns button {
+  padding: 0.1rem;
+  width: 80px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+/* Todo Single List */
+.company_todo .company_todo_item .todo_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding: 0.8rem;
+  background-color: white;
+}
+.company_todo .company_todo_item .todo_item .list_input,
+.company_todo .company_todo_item .todo_item .list_btns {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.company_todo .company_todo_item .todo_item .list_input {
+  width: 70%;
+}
+.company_todo .company_todo_item .todo_item .list_btns {
+  width: 30%;
+  justify-content: space-evenly;
+}
+
+/* Todo Priority Background */
+.company_todo .company_todo_item .todo_item_yellow {
+  background-color: yellow;
+}
+.company_todo .company_todo_item .todo_item_orange {
+  background-color: orange;
+}
+.company_todo .company_todo_item .todo_item_red {
+  background-color: #ff5353;
+}
+.company_todo .company_todo_item .todo_item .check {
+  width: 6%;
+  height: 20px;
+  border: none;
+}
+.company_todo .company_todo_item .todo_item .text {
+  width: 100%;
+  height: 2rem;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: black;
+  font-size: 17px;
+  font-weight: 500;
+}
+.company_todo .company_todo_item .todo_item .text::placeholder {
+  color: black;
+}
+/* Todo List Text Border and mark*/
+.company_todo .company_todo_item .todo_item .addBorder {
+  border: 1px solid black;
+  padding: 0.5rem 0.8rem;
+}
+.company_todo .company_todo_item .todo_item .deleteBorder {
+  border: transparent;
+}
+.company_todo .company_todo_item .todo_item .addLine {
+  text-decoration: line-through;
+}
+
+/* Todo List Button */
+.company_todo .company_todo_item .todo_item button {
+  height: 2rem;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 40%;
+}
+.company_todo .company_todo_item .todo_item .edit {
+  color: white;
+  background-color: darkgreen;
+}
+.company_todo .company_todo_item .bg_change .edit {
+  opacity: 0.3;
+}
+.company_todo .company_todo_item .todo_item .delete {
+  color: white;
+  background-color: brown;
+}
+
+/*==========================
+  Responsive for small device
+=============================*/
+@media screen and (max-width: 991px) {
+  .company_todo {
+    width: 90%;
   }
-  to {
-    transform: rotate(360deg);
+  .company_todo .company_todo_form form {
+    width: 90%;
+  }
+  .company_todo .company_todo_item .todo_list {
+    flex-direction: column;
+    height: auto;
+  }
+  .company_todo .company_todo_item .todo_list .todo_priority {
+    width: 50%;
+    padding: 0.5rem;
+  }
+  .company_todo .company_todo_item .todo_item {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .company_todo {
+    width: 95%;
+  }
+  .company_todo h2 {
+    font-size: 40px;
+  }
+  .company_todo .company_todo_form form {
+    width: 100%;
+  }
+  .company_todo .company_todo_item .todo_list {
+    flex-direction: column;
+    height: auto;
+  }
+  .company_todo .company_todo_item .todo_item {
+    width: 95%;
+    margin: 0 auto;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media screen and (max-width: 600px) {
+  .company_todo {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .company_todo .company_todo_item .todo_item {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .company_todo .company_todo_item .todo_list .todo_priority {
+    width: 50%;
+    padding: 0.8rem;
+  }
+  .company_todo .company_todo_item .todo_item .list_input,
+  .company_todo .company_todo_item .todo_item .list_btns {
+    width: 100%;
+  }
+  .company_todo .company_todo_item .todo_item .check {
+    width: 20px;
+  }
+  .company_todo .company_todo_item .todo_item .text {
+    width: 100%;
+  }
+  .company_todo .company_todo_item .todo_item button {
+    width: 100%;
   }
 }
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+@media screen and (max-width: 425px) {
+  .company_todo .company_todo_item .todo_list .todo_priority {
+    width: 70%;
+  }
 }
