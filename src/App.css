@@ -82,6 +82,8 @@
   border-radius: 5px;
   margin-bottom: 1rem;
   border: none;
+  font-size: 17px;
+  font-weight: 500;
 }
 .company_todo .todo_status select option {
   font-size: 17px;
@@ -212,6 +214,7 @@
 }
 .company_todo .company_todo_item .bg_change .edit {
   opacity: 0.3;
+  cursor: not-allowed;
 }
 .company_todo .company_todo_item .todo_item .delete {
   color: white;
