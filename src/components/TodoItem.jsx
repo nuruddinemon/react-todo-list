@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useTodo } from "../context/TodoContext";
+import TodoPriority from "./TodoPriority";
 
 function TodoItem({ todo }) {
   const [isTodoEditable, setIsTodoEditable] = useState(false);
@@ -8,9 +9,6 @@ function TodoItem({ todo }) {
     editTodo,
     deleteTodo,
     checkboxComplete,
-    todoLowPriority,
-    todoMediumPriority,
-    todoHighPriority,
   } = useTodo();
 
   // handle todo task update
@@ -19,38 +17,28 @@ function TodoItem({ todo }) {
     setIsTodoEditable(false);
   };
 
+  // edit todo button callback
+  const todoBtnCallback = () => {
+    if (todo.completed) {
+      return;
+    }
+    if (isTodoEditable) {
+      updateTodo();
+    } else {
+      setIsTodoEditable((prev) => !prev);
+    }
+  }
+  
+
   // handle todo task checkbox
   const taskCompleted = () => {
     checkboxComplete(todo.id);
-  };
-  //handle todo task low priority
-  const lowTaskPriority = () => {
-    todoLowPriority(todo.id);
-  };
-  // handle todo task medium priority
-  const mediumTaskPriority = () => {
-    todoMediumPriority(todo.id);
-  };
-  // handle todo task high priority
-  const highTaskPriority = () => {
-    todoHighPriority(todo.id);
   };
 
   return (
     <div className="todo_list">
       <div className="todo_priority">
-        <h4>Priority</h4>
-        <div className="btns">
-          <button onClick={lowTaskPriority} className="todo_item_yellow ">
-            Low
-          </button>
-          <button onClick={mediumTaskPriority} className=" todo_item_orange">
-            Medium
-          </button>
-          <button onClick={highTaskPriority} className="todo_item_red">
-            High
-          </button>
-        </div>
+        <TodoPriority todo={todo} />
       </div>
       <div
         className={`todo_item ${todo.completed ? "bg_change" : ""} ${
@@ -81,19 +69,7 @@ function TodoItem({ todo }) {
           />
         </div>
         <div className="list_btns">
-          <button
-            className="edit"
-            onClick={() => {
-              if (todo.completed) {
-                return;
-              }
-              if (isTodoEditable) {
-                updateTodo();
-              } else {
-                setIsTodoEditable((prev) => !prev);
-              }
-            }}
-          >
+          <button className="edit" onClick={todoBtnCallback}>
             {isTodoEditable ? "Update" : "Edit"}
           </button>
           <button
