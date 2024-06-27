@@ -1,19 +1,15 @@
-import React, { useState } from "react";
-import { useTodo } from "../context/TodoContext";
+import React, { useContext, useState } from "react";
+import { TodoContext } from "../context/TodoContext";
 import TodoPriority from "./TodoPriority";
 
 function TodoItem({ todo }) {
   const [isTodoEditable, setIsTodoEditable] = useState(false);
-  const [todoText, setTodoText] = useState(todo.todo);
-  const {
-    editTodo,
-    deleteTodo,
-    checkboxComplete,
-  } = useTodo();
+  const [todoText, setTodoText] = useState(todo.task);
+  const { editTodo, deleteTodo, checkboxComplete } = useContext(TodoContext);
 
   // handle todo task update
   const updateTodo = () => {
-    editTodo(todo.id, { ...todo, todo: todoText });
+    editTodo(todo.id, { ...todo, task: todoText });
     setIsTodoEditable(false);
   };
 
@@ -27,30 +23,39 @@ function TodoItem({ todo }) {
     } else {
       setIsTodoEditable((prev) => !prev);
     }
-  }
-  
+  };
 
   // handle todo task checkbox
   const taskCompleted = () => {
     checkboxComplete(todo.id);
   };
 
+  const getBackgroundColor = () => {
+    switch (todo.priority) {
+      case "low":
+        return "todo_item_green";
+      case "medium":
+        return "todo_item_yellow";
+      case "high":
+        return "todo_item_red";
+      default:
+        return "todo_item";
+    }
+  };
+
+  const handlePriorityChange = (e) => {
+    editTodo(todo.id, { ...todo, priority: e.target.value });
+  };
+
   return (
     <div className="todo_list">
       <div className="todo_priority">
-        <TodoPriority todo={todo} />
+        <TodoPriority
+          priority={todo.priority}
+          handlePriorityChange={handlePriorityChange}
+        />
       </div>
-      <div
-        className={`todo_item ${todo.completed ? "bg_change" : ""} ${
-          todo.lowPriority
-            ? "todo_item_yellow"
-            : todo.mediumPriority
-            ? "todo_item_orange"
-            : todo.highPriority
-            ? "todo_item_red"
-            : ""
-        }`}
-      >
+      <div className={`todo_item ${getBackgroundColor()}`}>
         <div className="list_input">
           <input
             type="checkbox"
@@ -69,7 +74,12 @@ function TodoItem({ todo }) {
           />
         </div>
         <div className="list_btns">
-          <button className="edit" onClick={todoBtnCallback}>
+          <button
+            className={`${
+              todo.completed ? "not_allowed_btn" : "edit"
+            }`}
+            onClick={todoBtnCallback}
+          >
             {isTodoEditable ? "Update" : "Edit"}
           </button>
           <button

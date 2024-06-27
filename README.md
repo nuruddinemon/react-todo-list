@@ -1,8 +1,8 @@
-<h1 align="center">React Todo List APP 📝<h1/> 
+<h1 align="center">TaskJourney 📝<h1/> 
 
 
 <p align="center">
-  🖊️ A simple Todo List App built using <a href="https://react.dev/">React</a> and Raw CSS
+  🖊️ A simple Tasks List App built using <a href="https://react.dev/">React</a> and Raw CSS
 </p>
  <img src="https://raw.githubusercontent.com/nuruddinemon/react-todo-list/main/React-Todo-list.png" alt="todo list app">
 
@@ -14,7 +14,7 @@
  - Delete Todo List
  - Save Todo in localStorage when the states changes
  - Todo Status Options like completed or incomplete
- - Todo priority color by low/medium/high click button
+ - Todo priority color by low/medium/high by select
  - Responsive UI all devices
 
 

@@ -100,7 +100,7 @@
 .company_todo .company_todo_item .todo_list {
   display: flex;
   justify-content: center;
-  align-items: center;
+
   height: 4rem;
   gap: 1rem;
 }
@@ -109,26 +109,23 @@
   background-color: bisque;
   border-radius: 10px;
   padding: 0.5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
-.company_todo .company_todo_item .todo_list .todo_priority h4 {
+.company_todo .company_todo_item .todo_list .todo_priority label {
   font-size: 16px;
   font-weight: 500;
   margin: 0 0 0.3rem 0;
 }
-.company_todo .company_todo_item .todo_list .todo_priority .btns {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-}
 
-.company_todo .company_todo_item .todo_list .todo_priority .btns button {
-  padding: 0.1rem;
-  width: 80px;
+.company_todo .company_todo_item .todo_list .todo_priority select {
+  outline: none;
+  padding: 0.3rem 0.4rem;
   border-radius: 5px;
   border: none;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 500;
-  cursor: pointer;
 }
 /* Todo Single List */
 .company_todo .company_todo_item .todo_item {
@@ -160,8 +157,8 @@
 .company_todo .company_todo_item .todo_item_yellow {
   background-color: yellow;
 }
-.company_todo .company_todo_item .todo_item_orange {
-  background-color: orange;
+.company_todo .company_todo_item .todo_item_green {
+  background-color: lawngreen;
 }
 .company_todo .company_todo_item .todo_item_red {
   background-color: #ff5353;
@@ -212,9 +209,9 @@
   color: white;
   background-color: darkgreen;
 }
-.company_todo .company_todo_item .bg_change .edit {
+.company_todo .company_todo_item .not_allowed_btn {
   opacity: 0.3;
-  cursor: not-allowed;
+  cursor: not-allowed !important;
 }
 .company_todo .company_todo_item .todo_item .delete {
   color: white;

@@ -1,31 +1,31 @@
-import React, { useState } from 'react'
-import { useTodo } from '../context/TodoContext';
+import React, { useContext, useState } from "react";
+import { TodoContext } from "../context/TodoContext";
 
 function TodoForm() {
-  const [todo, setTodo] = useState("");
-  const {addTodo} = useTodo();
+  const [task, setTask] = useState("");
+  const { addTodo } = useContext(TodoContext);
 
   const handleAddTodo = (e) => {
     e.preventDefault();
-    if (!todo) {
+    if (!task) {
       return;
     } else {
-      addTodo({ todo, completed: false });
-      setTodo("");
+      addTodo({ task });
+      setTask("");
     }
   };
-
   return (
-      <form  onSubmit={handleAddTodo}>
-        <input
-          type="text"
-          placeholder="Add List"
-          value={todo}
-          onChange={(e) => setTodo(e.target.value)}
-        />
-        <button type="submit">Add</button>
-      </form>
+    <form onSubmit={handleAddTodo}>
+      <input
+        type="text"
+        placeholder="Add List"
+        value={task}
+        onChange={(e) => setTask(e.target.value)}
+        required
+      />
+      <button type="submit">Add</button>
+    </form>
   );
 }
 
-export default TodoForm
+export default TodoForm;
